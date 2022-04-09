@@ -1,1 +1,41 @@
+
 <h1>Hello Suhas</h1>
+
+<input class="search" type="text" placeholder="Search Here" name = 'term' [(ngModel)]='term'>
+<table class="table">
+      <tr class="table">
+            <th>ID</th>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Description</th>
+      </tr>
+      <td class="table">
+            <tbody class="table" *ngFor="let list of myData | filter : term">
+                  {{list.id}}
+            </tbody>
+
+      </td>
+      <td class="table">
+
+            <tbody class="table" *ngFor="let list of myData | filter : term">
+                  {{list.name}}
+            </tbody>
+
+      </td>
+      <td class="table">
+
+            <tbody class="table" *ngFor="let list of myData | filter : term">
+                  {{list.email}}
+            </tbody>
+
+      </td>
+      <td class="table">
+
+            <tbody class="table" *ngFor="let list of myData | filter : term">
+                  {{list.body}}
+            </tbody>
+
+      </td>
+
+      
+</table>

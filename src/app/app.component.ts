@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+//import {HttpClient} from '@angular/common/http'
+import {ApiServiceService} from '../app/api-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,22 @@ import {HttpClient} from '@angular/common/http'
 })
 export class AppComponent {
   title = 'Practice-peoject';
-  constructor(private http:HttpClient){}
+  constructor(private service:ApiServiceService){}
+  myData:any = ''
+  term:any;
+
 
   ngOnInit(){
     console.log("hello Suhas")
-    let url = ('https://jsonplaceholder.typicode.com/todos/1');
-    this.http.get(url).subscribe((data)=>{
-      console.log(data)
-    })
+    this.service.getdata().subscribe((data =>{
+      this.myData = data;
+    }))
+    /* let url = ('https://jsonplaceholder.typicode.com/comments');
+    this.http.get(url).subscribe((data)=>{ */
+      //console.log(this.service.getdata.)
+      //this.myData = data
+  }
+  search(){
+    console.log("myname")
   }
 }
